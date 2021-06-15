@@ -1,7 +1,16 @@
-import React from 'react';
+import React, { FC } from 'react';
+import { Switch, Route, Redirect } from 'react-router-dom';
+import LogIn from '@pages/Login';
+import SignUp from '@pages/SignUp';
 
-const App = () => {
-  return <div>핫 리로딩</div>;
+const App: FC = () => {
+  return (
+    <Switch>
+      <Redirect exact path="/" to="/login" />
+      <Route exact path="/login" component={LogIn} />
+      <Route exact path="/signup" component={SignUp} />
+    </Switch>
+  );
 };
 
 export default App;
